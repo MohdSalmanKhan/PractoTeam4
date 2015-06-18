@@ -1,0 +1,72 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+{% block content %}
+
+
+<style type="text/css">
+    .doctorinfo{
+        background-color: grey ;
+    }
+
+
+</style>
+
+
+
+<div class='container'>
+  <div class='jumbotron row'>
+
+
+    {% for doc in doctor_list %}
+
+    
+    <div class='col-xs-4 doctorinfo'>
+    
+        ID : <b>{{ doc.id }}</b>  <br>
+        Name : <b>{{ doc.name }}</b>  <br>
+        Education : <b>{{ doc.education }}</b><br>
+        Expertise : <b>{{ doc.expertise }}</b><br>
+
+        Experience : <b>{{ doc.experience }}</b>  <br>
+        Email : <b>{{ doc.email }}</b>  <br>
+        Description : <b>{{ doc.description }}</b>  <br>
+        Specialization : <b>{{ doc.specialization }}</b>  <br>
+        Area : <b>{{ doc.area }}</b>  <br>
+        City : <b>{{ doc.city }}</b>  <br>
+        Country : <b>{{ doc.country }}</b>  <br>
+        Completeaddress : <b>{{ doc.completeaddress }}</b>  <br>
+        Fee : <b>{{ doc.fee }}</b>  <br>
+        Timings : <b>{{ doc.timings }}</b>  <br>
+        Phone Number : <b>{{ doc.phone_number }}</b>  <br>
+        Dial Extension : <b>{{ doc.dial_extension }}</b>  <br>
+
+        Sponsored : <b>{{ doc.sponsored }}</b><br>
+        recommended : <b>{{ doc.recommended }}</b><br>
+
+    </div>
+
+    <br> <br>
+
+	{% endfor %}
+
+    <p>
+      <form action="/deleteDoctor/">
+      	Enter ID : 
+      	<input type="text" aria-describedby="basic-addon1" placeholder="ID" id="idvalue">
+      	<input type='submit' alt="Submit" name='Delete' onclick="changeURL()" >
+      </form>
+    </p>
+  </div>
+</div>
+
+	
+  <script type="text/javascript">
+    function changeURL(){
+        document.getElementById("formId").action += document.getElementById("idvalue").value;
+    }
+
+  </script>
+
+<br>
+<br>
+{% endblock %}

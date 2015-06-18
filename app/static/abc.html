@@ -1,0 +1,20 @@
+<html>
+
+	<form  id="formId" action="/abc/">
+
+		<button onclick="myFunction()" type="submit">Click me</button>
+	</form>
+
+
+	<script type="text/javascript">
+		function myFunction(){
+			alert("hello")
+   			document.getElementById("formId").action += "www.google.com";
+   			alert(document.getElementById("formId").action);
+		}
+
+	</script>
+
+
+</html>
+
