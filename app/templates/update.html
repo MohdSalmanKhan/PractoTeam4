@@ -2,71 +2,96 @@
 {% extends "base.html" %}
 {% block content %}
 
-
 <style type="text/css">
-    .doctorinfo{
-        background-color: grey ;
-    }
-
-
+  #main{
+    background-color: grey ;
+    color: black;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+  }
+  #centre{
+    font-size: 25px;
+  }
+  #details{
+    margin-top: 5%;
+    font-size: 20px;
+  }
 </style>
 
-
-
 <div class='container'>
-  <div class='jumbotron row'>
-
-
-    {% for doc in doctor_list %}
-
-    
-    <div class='col-xs-4 doctorinfo'>
-    
-        ID : <b>{{ doc.id }}</b>  <br>
-        Name : <b>{{ doc.name }}</b>  <br>
-        Education : <b>{{ doc.education }}</b><br>
-        Expertise : <b>{{ doc.expertise }}</b><br>
-
-        Experience : <b>{{ doc.experience }}</b>  <br>
-        Email : <b>{{ doc.email }}</b>  <br>
-        Description : <b>{{ doc.description }}</b>  <br>
-        Specialization : <b>{{ doc.specialization }}</b>  <br>
-        Area : <b>{{ doc.area }}</b>  <br>
-        City : <b>{{ doc.city }}</b>  <br>
-        Country : <b>{{ doc.country }}</b>  <br>
-        Completeaddress : <b>{{ doc.completeaddress }}</b>  <br>
-        Fee : <b>{{ doc.fee }}</b>  <br>
-        Timings : <b>{{ doc.timings }}</b>  <br>
-        Phone Number : <b>{{ doc.phone_number }}</b>  <br>
-        Dial Extension : <b>{{ doc.dial_extension }}</b>  <br>
-
-        Sponsored : <b>{{ doc.sponsored }}</b><br>
-        recommended : <b>{{ doc.recommended }}</b><br>
-
+  
+  <div id="main">
+    <div id="centre">
+      Update Page
     </div>
+    <div id="details">
+      Enter Doctor Details:
+    </div>
+    <form action="/update/" method="post" name="store" id="formId">
+      <p>
+        Name:{{ store.name(size=80) }}<br>
+      </p>
 
-    <br> <br>
+       <p>
+        Specialization:{{ store.specialization(size=80) }}<br>
+      </p>
+      
+      <p>
+        Area:{{ store.area(size=80) }}<br>
+      </p>
+      
+      <p>
+        City:{{store.city(size=80) }}<br>
+      </p>
 
-	{% endfor %}
+      <p>
+        Education:{{ store.education(size=80) }}<br>
+      </p>
+      <p>
+        Expertise:{{ store.expertise(size=80) }}<br>
+      </p>
+      <p>
+        Experience:{{ store.experience(size=80) }}<br>
+      </p>
+      <p>
+        Email:{{ store.email(size=80) }}<br>
+      </p>
+      <p>
+        Description:{{ store.description(size=80) }}<br>
+      </p>
+     
+      <p>
+        Country:{{store.country(size=80) }}<br>
+      </p>
 
-    <p>
-      <form action="/deleteDoctor/">
-      	Enter ID : 
-      	<input type="text" aria-describedby="basic-addon1" placeholder="ID" id="idvalue">
-      	<input type='submit' alt="Submit" name='Delete' onclick="changeURL()" >
-      </form>
-    </p>
-  </div>
-</div>
+      <p>
+        Address:{{store.completeaddress(size=80) }}<br>
+      </p>
 
-	
+      <p>
+        Fee:{{store.fee(size=80) }}<br>
+      </p>
+
+      <p>
+        Timings:{{store.timings(size=80) }}<br>
+      </p>
+
+       <p>
+        Phone Number:{{store.phone_number(size=80) }}<br>
+      </p>
+
+      <p><input type="submit" value="Store" onclick="changeURL()" ></p>
+  </form>
+</div>  
   <script type="text/javascript">
     function changeURL(){
-        document.getElementById("formId").action += document.getElementById("idvalue").value;
+        alert({{doctor_data.id}})
+        document.getElementById("formId").action += {{doctor_data.id}} ;
+        alert(document.getElementById("formId").action)
     }
 
   </script>
 
-<br>
-<br>
+
 {% endblock %}

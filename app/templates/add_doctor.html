@@ -1,26 +1,58 @@
-<hmtl>
+<!-- extend from base layout -->
+{% extends "base.html" %}
+{% block content %}
+
+<style type="text/css">
+  #main{
+    background-color: grey ;
+    color: black;
+    text-align: center;
+    width: 60%;
+    margin-left: 20%;
+  }
+  #centre{
+    font-size: 25px;
+  }
+  #details{
+    margin-top: 5%;
+    font-size: 20px;
+  }
+  </style>
+
+
 <head>
 		<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/css/materialize.min.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js"></script>
-	</head>
+</head>
 <body>
-<form acion = /add_doctor method="POST">
-Name:<input type = 'text' name = 'name' /><br>
-Education:<input type = 'text' name = 'education' /><br>
-Expertise:<input type = 'text' name = 'expertise' /><br>
-Experience:<input type = 'text' name = 'experience' /><br>
-Email:<input type = 'text' name = 'email' /><br>
-Description:<input type = 'text' name = 'description' /><br>
-Specialization:<input type = 'text' name = 'specialization' /><br>
-Area:<input type = 'text' name = 'area' /><br>
-City:<input type = 'text' name = 'city' /><br>
-Country:<input type = 'text' name = 'country' /><br>
-Complete Address:<input type = 'text' name = 'completeaddress' /><br>
-Fee:<input type = 'text' name = 'fee' /><br>
-Phone:<input type = 'text' name = 'phone_number' /><br>
-Timings:<input type = 'text' name = 'timings' /><br>
-<input type = 'submit' name ='submit' /><br>
-</form>
+	<div id="main">
+  		<div id="centre">
+    		Insert Page
+  		</div>
+  		<div id="details">
+    		Enter Doctor Details:
+  		</div>		
+  		<form acion = "/add_doctor" method="POST">
+			Name:<input type = 'text' name = 'name' />
+			Specialization:<input type = 'text' name = 'specialization' />
+			Area:<input type = 'text' name = 'area' />
+			City:<input type = 'text' name = 'city' />
+
+			Education:<input type = 'text' name = 'education' />
+			Expertise:<input type = 'text' name = 'expertise' />
+			Experience:<input type = 'text' name = 'experience' />
+			Email:<input type = 'text' name = 'email' />
+			Description:<input type = 'text' name = 'description' />
+			
+			Country:<input type = 'text' name = 'country' />
+			Complete Address:<input type = 'text' name = 'completeaddress' /><br>
+			Fee:<input type = 'text' name = 'fee' /><br>
+			Phone:<input type = 'text' name = 'phone_number' /><br>
+			Timings:<input type = 'text' name = 'timings' /><br>
+			<input type = 'submit' name ='submit' /><br>
+		</form>
+	</div>
 </body>
-</hmtl>
+
+{% endblock %}

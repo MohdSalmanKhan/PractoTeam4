@@ -7,43 +7,44 @@
 <div class='jumbotron row blue-color'>
   <div class='container'>
   <div class='jumbotron row'>
-    <form action="/doctor/1/" method="POST">
+    <form action="/doctor/" method="POST" id="delform">
       <label>
-        From Which City U Want to delete doctor <br>
+        City to delete doctor 
       </label>
-      <input type='text' id="cityname"> 
-      <input type='submit' alt="Submit" name='Delete' onclick="changeURL()" >
+      <input type='text' id="delcity"> 
+      <input type='submit' alt="Submit" name='Delete' onclick="changeDel()" >
     </form>
   </div>
   </div>
   <div class='container'>
   <div class='jumbotron row'>
-    <form action="/doctor/2/" method="POST">
+    <form action="/doctor/" method="POST" id="updateform">
       <label>
-        Click to update:
+        City to update doctor
       </label>
-      <input type='submit' alt="Submit" name='Delete' onclick="changeURL()" >
+      <input type='text' id="updatecity"> 
+      <input type='submit' alt="Submit" name='Update' onclick="changeUpdate()" >
     </form>
   </div>
   </div>
   <div class='container'>
   <div class='jumbotron row'>
-    <form action="/doctor/0/" method="POST">
+    <form action="/doctor/" method="POST" id="readform">
       <label>
-        Click to read:
+        City to read doctor
       </label>
-      <input type='text' id="cityname"> 
-      <input type='submit' alt="Submit" name='Delete'>
+      <input type='text' id="readcity"> 
+      <input type='submit' alt="Submit" name='Read' onclick="changeRead()">
     </form>
   </div>
   </div>
   <div class='container'>
   <div class='jumbotron row'>
-    <form action="/insert" method="POST">
+    <form action="/add_doctor" method="GET">
       <label>
-        Click to create:
+        Click to insert doctor information:
       </label>
-      <input type='submit' alt="Submit" name='Delete'>
+      <input type='submit' alt="Submit" name='Insert'>
     </form>
   </div>
   </div>
@@ -51,8 +52,15 @@
 
 
   <script type="text/javascript">
-    function myFunction(){
-        document.getElementById("formId").action += document.getElementById("cityname").value;
+    function changeDel(){
+        document.getElementById("delform").action = document.getElementById("delform").action +1+"/" + document.getElementById("delcity").value;
+    }
+    function changeUpdate(){
+      document.getElementById("updateform").action = document.getElementById("updateform").action + 2 + "/" + document.getElementById("updatecity").value;
+    }
+    function changeRead(){
+        document.getElementById("readform").action = document.getElementById("readform").action  +0 +"/"+document.getElementById("readcity").value;
+        alert(document.getElementById("readform").action)
     }
 
   </script>

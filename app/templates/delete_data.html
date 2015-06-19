@@ -21,6 +21,7 @@
 
     
     <div class='col-xs-4 doctorinfo'>
+   
     
         ID : <b>{{ doc.id }}</b>  <br>
         Name : <b>{{ doc.name }}</b>  <br>
@@ -42,7 +43,7 @@
 
         Sponsored : <b>{{ doc.sponsored }}</b><br>
         recommended : <b>{{ doc.recommended }}</b><br>
-
+      
     </div>
 
     <br> <br>
@@ -50,7 +51,7 @@
 	{% endfor %}
 
     <p>
-      <form action="/deleteDoctor/">
+      <form action="/deleteDoctor/" id="formId">
       	Enter ID : 
       	<input type="text" aria-describedby="basic-addon1" placeholder="ID" id="idvalue">
       	<input type='submit' alt="Submit" name='Delete' onclick="changeURL()" >
@@ -62,7 +63,10 @@
 	
   <script type="text/javascript">
     function changeURL(){
-        document.getElementById("formId").action += document.getElementById("idvalue").value;
+        alert("hello")
+        alert(document.getElementById("idvalue").value)
+        alert(document.getElementById("formId").action)
+        document.getElementById("formId").action = document.getElementById("formId").action  + document.getElementById("idvalue").value
     }
 
   </script>
